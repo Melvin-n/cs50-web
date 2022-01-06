@@ -1,0 +1,29 @@
+{% extends "encyclopedia/layout.html" %}
+{% load static %}
+{% load markdownify %}
+
+{% block title %}
+    Create a new page
+{% endblock %}
+
+
+{% block body %}
+   
+    <form id='new-page-form' action="{% url 'new_page' %}" method='POST'>
+        {% csrf_token %}
+        <input id='input-new-title' type='text' name='title' placeholder='New page title' 
+        {%if title != ''%}
+        value="{{title}}"
+        {% endif %}
+        >
+        {% if messages %}
+        
+            {% for message in messages %}
+            <p {% if message.tags %} class="{{ message.tags }}" >{% endif %}{{ message }}
+                {% endfor %}</p>
+        
+        {% endif %}
+        <textarea name='content' id='textarea-new-page' placeholder="Content" >{{content}}</textarea>
+        <input id='new-submit-btn' type='submit' value='Save'>
+    </form>
+{% endblock %}

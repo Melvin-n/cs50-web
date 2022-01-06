@@ -13,8 +13,21 @@ h1 {
 }
 
 textarea {
-    height: 90vh;
-    width: 80%;
+    height: 70vh;
+    width: 70%;
+}
+#new-page-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#input-new-title {
+    width: 70%;
+}
+
+#new-submit-btn {
+    width: 20%;
 }
 
 .main {
