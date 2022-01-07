@@ -7,11 +7,12 @@
 
 
 {% block body %}
-    {{ title }}
     <form id='edit-page-form' action="{% url 'edit_page' %}" method='POST'>
         {% csrf_token %}
-        
-        <textarea name='content' id='textarea-new-page' placeholder="Content" >{{content}}</textarea>
+        <label>{{ title }}</label>
+        <input type='hidden' name='title' value='{{ title }}'>
+        <input type="hidden" name="_method" value="PUT" />
+        <textarea name='content' id='textarea-new-page'>{{ content }}</textarea>
         <input id='new-submit-btn' type='submit' value='Save'>
     </form>
 

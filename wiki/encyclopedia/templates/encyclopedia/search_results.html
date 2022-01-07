@@ -11,7 +11,7 @@
     <ul>
         {% for entry in entries %}
             {% if search_term in entry %}
-                <li><a href="wiki/{{entry}}">{{ entry }}</a></li>
+                <li><a href="wiki/{{entry}}">{{  entry.capitalize }}</a></li>
             {% endif %}
         {% endfor %}
     </ul>

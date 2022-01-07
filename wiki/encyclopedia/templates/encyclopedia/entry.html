@@ -7,6 +7,15 @@
 
 
 {% block body %}
-    {{ entry | markdownify }}
+    <h3 id='entry-title'>{{ title }}</h3>
+    <div id='entry-content'>{{ entry | safe }}</div>
+
+    <form method='POST' action="{% url 'edit_page' %}">
+        {% csrf_token %}
+        <input type='hidden' name='title' value='{{ title }}'>
+        <input type='hidden' name='content' value='{{ entry }}'>
+        <input type="hidden" name="_method" value="POST">
+        <input type='submit' value='Edit this page'>
+    </form>
  
 {% endblock %}

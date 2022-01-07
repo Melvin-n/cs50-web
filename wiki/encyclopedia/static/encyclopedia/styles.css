@@ -1,6 +1,7 @@
 body {
     margin: 0;
     background-color: white;
+    overflow-x: hidden;
 }
 
 code {
@@ -15,8 +16,17 @@ h1 {
 textarea {
     height: 70vh;
     width: 70%;
+    resize: none;
+    /* white-space:nowrap; */
 }
-#new-page-form {
+
+#entry-content {
+    width: 80vw;
+    height: auto;
+    overflow-wrap: break-word;
+    overflow:auto;
+}
+#new-page-form, #edit-page-form{
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -48,4 +58,8 @@ textarea {
 
 .sidebar h2 {
     margin-top: 5px;
+}
+
+#entry-title {
+    text-decoration: underline;
 }
